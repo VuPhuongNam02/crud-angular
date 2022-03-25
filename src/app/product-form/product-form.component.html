@@ -1,0 +1,22 @@
+<form [formGroup]="productForm" (submit)="onSubmit(productForm.value)">
+    <p>
+        <label for="">name</label>
+        <input type="text" formControlName="name" minlength [(ngModel)]="product.name">
+        <span style="color: red;" *ngIf="productForm.controls['name'].hasError('required')">ko để trống name</span>
+        <span style="color: red;" *ngIf="productForm.controls['name'].hasError('minlength')">>5 kí tự</span>
+    </p>
+    <p>
+        <label for="">price</label>
+        <input type="text" formControlName="price" [(ngModel)]="product.price">
+        <span style="color: red;" *ngIf="productForm.controls['price'].hasError('required')">ko để trống price</span>
+    </p>
+    <p>
+        <label for="">desc</label>
+        <input type="text" formControlName="desc" [(ngModel)]="product.desc">
+        <span style="color: red;" *ngIf="productForm.controls['desc'].hasError('required')">ko để trống desc</span>
+
+    </p>
+    <p>
+        <button type="submit" [disabled]="productForm.invalid">submit</button>
+    </p>
+</form>

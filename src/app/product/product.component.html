@@ -1,0 +1,19 @@
+<table>
+    <a [routerLink]="['/product/create']">thêm</a>
+    <thead>
+        <th>Id</th>
+        <th>name</th>
+        <th>price</th>
+        <th>desc</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pro of products">
+            <td>{{pro.id}}</td>
+            <td>{{pro.name}}</td>
+            <td>{{pro.price}}</td>
+            <td>{{pro.desc}}</td>
+            <td> <a [routerLink]="['/product/','edit',pro.id]">sửa</a> </td>
+            <td> <button (click)="remove(pro.id)">Xóa</button> </td>
+        </tr>
+    </tbody>
+</table>
